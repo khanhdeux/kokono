@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/*------------------------------------*\
+    WOOCOMMERCE.CSS
+\*------------------------------------*/
+/**
+ * WooCommerce Plugin Styling
+ */
+
+
+
+/*------------------------------------*\
+    $SETUP
+\*------------------------------------*/
+@import "vars";
+@import "_vendor/inuit.css/generic/_mixins";
+@import "_vendor/inuit.css/generic/clearfix";
+
+
+
+// WOOCOMMERCE
+@import "woocommerce/__woocommerce";

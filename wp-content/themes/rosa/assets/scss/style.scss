@@ -1,0 +1,48 @@
+/*
+Theme Name: Rosa
+Theme URI: https://demos.pixelgrade.com/rosa
+Author: Pixelgrade
+Author URI: https://pixelgrade.com
+Description:  ROSA is an enchanting and easy-to-use parallax Restaurant WordPress theme that allows you to tell your story in a dynamic, narrative and enjoyable way, making it perfect for restaurants, bakeries, bars or coffee shops.
+Version: 2.3.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rosa
+Tags: fluid-layout, responsive-layout, parallax, translation-ready, restaurant
+*/
+
+@charset "UTF-8";
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ * Load the Inuit framework, then add our
+ * project-specific components afterwards.
+ */
+/*------------------------------------*\
+    $SETUP
+\*------------------------------------*/
+@import "vars";
+@import "_vendor/inuit.css/inuit";
+@import "_vendor/icon-fonts/icon-fonts";
+/*------------------------------------*\
+    $IMPORTS
+\*------------------------------------*/
+// TOOLS
+@import "tools/__tools";
+// BASE
+@import "base/__base";
+// OBJECTS
+@import "objects/__objects";
+// LAYOUT
+@import "layout/__layout";
+// WIDGETS
+@import "widgets/__widgets";
+// PLUGINS
+@import "plugins/__plugins";
+// SHORTCODES
+@import "shortcodes/__shortcodes";
+// PAGES
+@import "pages/__pages";
+// SHAMELESS SHAME
+@import "shame";

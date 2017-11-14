@@ -1,0 +1,139 @@
+/* ==========================================================================
+   #FRONTEND + EDITOR STYLES VARS
+   ========================================================================== */
+
+// NOT DONE
+// Set Front End classes
+
+$row: '.row';
+$column__wrapper: '.column__wrapper';
+
+$c-col-prefix: '.column';
+$c-row--stretch: '.row-style--stretch';
+$column--stretch: '.column--stretch';
+
+// Rows
+$gridable-row-simple: '.row-style--simple';
+$gridable-row-strip: '.row-style--strip';
+
+// DONE
+$row__wrapper: '.pixcode--grid';
+$column: '.grid__item';
+
+// Columns
+$gridable-col-simple: '.column-style--simple';
+$gridable-col-island: '.island';
+$gridable-col-boxed: '.promo-box__container';
+
+// Set Editor Style Data Attributes Alternatives
+@if $editor-style == true {
+    // NOT DONE
+    $row__wrapper: '.row.grid';
+    $row: '.row';
+    $c-col-prefix: 'data-sh-column-attr-size';
+    $c-row--stretch: '[data-sh-row-attr-stretch=true]';
+
+    // Todo: Target only columns with images or galleries
+    // $column--stretch: '&[data-sh-row-attr-stretch=true] .grid__item';
+
+    $gridable-row-simple: '[data-sh-row-attr-row_style=simple]';
+    $gridable-row-strip: '[data-sh-row-attr-row_style=strip]';
+
+    // DONE
+    $row__wrapper: '.row.grid';
+    $column: '.grid__item';
+
+    $gridable-col-simple: '.row .grid__item[data-sh-column-attr-column_style=simple]';
+    $gridable-col-island: '.row .grid__item[data-sh-column-attr-column_style=island]';
+    $gridable-col-boxed: '.row .grid__item[data-sh-column-attr-column_style=promo-box], .row .grid__item[data-sh-column-attr-class=promo-box]';
+}
+
+
+/* ==========================================================================
+    #THE GRID
+   ========================================================================== */
+
+// *NEW*
+// <div class="gridable--row row-style--strip row-style--stretch">
+//  <div class="row">
+//      <div class="gridable--col col-style--highlighted">
+//          <div class="column">
+//          </div>
+//      </div>
+//  </div>
+// </div>
+
+/**
+ * Grid Row
+ */
+
+
+#{$row__wrapper} {
+    position: relative;
+    margin-bottom: $_15u;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/**
+ * Grid Columns / Row Items
+ */
+#{$column} {
+    // Remove bottom spacing for the last element (eg. paragraph)
+    // above 899px when there is more than one column
+    @include media-query(lap-and-up){
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // On mobile devices, when the layout is switching 
+    // to one column, remove the spacing for the last 
+    // element, only from the last column
+    &:last-child > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Promo Box:
+// Dark Background
+// White Text
+// Padding
+#{$gridable-col-boxed} {
+    padding: 36px 54px;
+    background-color: $accent;
+    color: white;
+
+    .promo-box.dark &{
+        background-color: $dark;
+    }
+
+    h1, h2, h3, h4, h5, h6{
+        margin-top: 0;
+        color: white;
+    }
+
+    p:last-child{
+        margin-bottom: 0;
+    }
+}
+
+@if $editor-style == true {
+
+    #{$gridable-col-island} {
+        padding: 46px;
+    }
+}
+
+html #{$gridable-col-boxed}#{$gridable-col-boxed} {
+    a {
+        color: white;
+        text-decoration: underline;
+
+        &:hover {
+            color: inherit !important;
+        }
+    }
+}
